@@ -49,5 +49,26 @@ namespace ExpenseTracker.Controllers
             _expenses.Remove(expense);
             return NoContent();
         }
+
+        // GET summary
+        [HttpGet("summary")]
+        public ActionResult GetSummary()
+        {
+            var summary = new
+            {
+                TotalExpenses = _expenses.Count,
+                TotalAmount = _expenses.Sum(e => e.Amount),
+                ByCategory = _expenses
+                    .GroupBy(e => e.Category)
+                    .Select(g => new
+                    {
+                        Category = g.Key,
+                        Count = g.Count(),
+                        Total = g.Sum(e => e.Amount)
+                    })
+            };
+
+            return Ok(summary);
+        }
     }
 }
