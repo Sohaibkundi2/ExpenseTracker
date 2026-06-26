@@ -71,3 +71,6 @@ GET /api/expenses/summary
 
 ## Postman Collection
 Import `ExpenseTracker.postman_collection.json` to test all endpoints instantly.
+
+## Demo Recording
+[▶ Watch Demo](https://drive.google.com/file/d/1OFrCT0Fe8YhG-S4p0BV6Z6dPLNYGXFcD/view?usp=sharing)

@@ -1,8 +1,9 @@
--- 1. Get all expenses
-SELECT * FROM Expenses
+-- 1. Get all expenses with their category name
+SELECT Id, Title, Amount, Category, CreatedAt
+FROM Expenses
 ORDER BY CreatedAt DESC;
 
--- 2. Get total amount spent per category
+-- 2. Get total amount per category
 SELECT 
     Category,
     COUNT(*) AS TotalExpenses,
@@ -11,7 +12,7 @@ FROM Expenses
 GROUP BY Category
 ORDER BY TotalAmount DESC;
 
--- 3. Get all expenses above a certain amount
-SELECT * FROM Expenses
-WHERE Amount > 10
+-- 3. Get the single most expensive entry
+SELECT TOP 1 *
+FROM Expenses
 ORDER BY Amount DESC;
